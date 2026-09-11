@@ -71,12 +71,9 @@ endmenu # Expert Settings
 
 endif # LED_SUBSYSTEM
 
-config BLINK_SLEEP_TIME_MS
-    int
-    default 250 if  BLINK_SPEED_250MS
-    default 500 if BLINK_SPEED_500MS
-    default 1000 if BLINK_SPEED_1000MS
-    default 2000 if BLINK_SPEED_2000MS
-    default 0
+config APP_HEARTBEAT_PERIOD_MS
+    int "Heartbeat period (ms)"
+    default 500
+    range 100 2000
 
 source "Kconfig.zephyr"
