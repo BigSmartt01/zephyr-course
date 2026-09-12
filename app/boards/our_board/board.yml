@@ -1,0 +1,6 @@
+board:
+  name: our_board
+  full_name: OUR BOARD
+  vendor: iomico
+  socs:
+  - name: esp32c3
