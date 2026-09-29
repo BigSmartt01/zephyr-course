@@ -4,9 +4,16 @@
 	};
 	leds {
 		compatible = "gpio-leds";
-
 		led0: led_0 {
-			gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
 		};
+	};
+	our_driver0: our_driver {
+		compatible = "our,driver";
+		status = "okay";
+	};
+	our_driver1: our_driver1 {
+		compatible = "our,driver";
+		status = "okay";
 	};
 };

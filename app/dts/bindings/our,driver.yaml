@@ -1,0 +1,3 @@
+description: Our Single GPIO driver
+compatible: "our,driver"
+include: base.yaml

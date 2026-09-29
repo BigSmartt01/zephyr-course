@@ -8,4 +8,4 @@ static int board_init_msg(void)
 }
 
 /* Run before main() */
-SYS_INIT(board_init_msg, PRE_KERNEL_1, 0);
+SYS_INIT(board_init_msg, APPLICATION, 0);
