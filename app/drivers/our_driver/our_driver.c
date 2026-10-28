@@ -28,24 +28,23 @@ int our_driver_set_led_state(const struct device *dev, bool enabled)
 
 static int sample_fetch_custom(const struct device *dev, enum sensor_channel chan)
 {
+    ARG_UNUSED(dev);
+
     if (chan != SENSOR_CHAN_ALL && chan != SENSOR_CHAN_AMBIENT_TEMP) {
         return -ENOTSUP;
     }
 
-    return our_driver_set_led_state(dev, true);
+    return 0;
 }
 
 static int channel_get_my_custom(const struct device *dev,
                         enum sensor_channel chan,
                         struct sensor_value *val)
 {
+    ARG_UNUSED(dev);
+
     if (chan != SENSOR_CHAN_AMBIENT_TEMP) {
         return -ENOTSUP;
-    }
-
-    int ret = our_driver_set_led_state(dev, false);
-    if (ret < 0) {
-        return ret;
     }
 
     val->val1 = 0;

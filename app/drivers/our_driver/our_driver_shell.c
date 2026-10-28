@@ -59,18 +59,18 @@ static int cmd_sensor_info(const struct shell *sh, size_t argc, char **argv)
 
 static int cmd_sensor_set(const struct shell *sh, size_t argc, char **argv)
 {
-    if (argc < 3) {
+    if (argc < 2) {
         shell_error(sh, "Missing LED state; expected 0 (off) or 1 (on)");
         return -EINVAL;
     }
 
     bool enabled;
-    if (strcmp(argv[2], "0") == 0) {
+    if (strcmp(argv[1], "0") == 0) {
         enabled = false;
-    } else if (strcmp(argv[2], "1") == 0) {
+    } else if (strcmp(argv[1], "1") == 0) {
         enabled = true;
     } else {
-        shell_error(sh, "Invalid LED state '%s'; expected 0 or 1", argv[2]);
+        shell_error(sh, "Invalid LED state '%s'; expected 0 or 1", argv[1]);
         return -EINVAL;
     }
 
@@ -93,7 +93,7 @@ SHELL_STATIC_SUBCMD_SET_CREATE(sensor_subcmd,
     SHELL_CMD(fetch, NULL, "Fetch a sensor sample", cmd_sensor_fetch),
     SHELL_CMD(read, NULL, "Read the ambient temperature channel", cmd_sensor_read),
     SHELL_CMD(info, NULL, "Show sensor device information", cmd_sensor_info),
-    SHELL_CMD_ARG(set, NULL, "Set LED state (0=off, 1=on)", cmd_sensor_set, 2, 1),
+    SHELL_CMD_ARG(set, NULL, "Set LED state (0=off, 1=on)", cmd_sensor_set, 1, 1),
     SHELL_SUBCMD_SET_END
 );
 
