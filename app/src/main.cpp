@@ -1,6 +1,7 @@
 #include <zephyr/drivers/sensor.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
+#include "our_driver.h"
 
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 
@@ -14,8 +15,14 @@ int main(void)
         return 0;
     }
 
+    int ret = our_driver_set_led_state(driver, true);
+    if (ret < 0) {
+        LOG_ERR("Failed to set LED state: %d", ret);
+        return 0;
+    }
+
     while (1) {
-        int ret = sensor_sample_fetch(driver);
+        ret = sensor_sample_fetch(driver);
         if (ret < 0) {
             LOG_ERR("Sensor sample fetch failed: %d", ret);
             return 0;
