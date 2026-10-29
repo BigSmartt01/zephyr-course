@@ -1,5 +1,9 @@
 # Build
-build
+build/
+build-*/
+
+# Twister test output
+twister-out*/
 
 # West files
 .west

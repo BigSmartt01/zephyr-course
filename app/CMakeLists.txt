@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20.0)
-set(BOARD doit_esp32_devkit_v1/esp32/procpu)
+set(BOARD esp32s3_devkitc/esp32s3/procpu)
 
 list(APPEND BOARD_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 find_package(Zephyr REQUIRED)
